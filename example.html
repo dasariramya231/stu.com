@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <h1>Students Form
+       
+    </h1>
+</header>
+    
+<form name ="google-sheet">
+    
+    <div class="outerbox">
+        <div class="ficon">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="fouterbox">
+           <div class="center">
+             <h2>
+                Name   :  <input type="text" name="Name" placeholder="Name" style="height: 22px;width: 200px;"><br><br>
+                Roll Number :  <input type="text" name="Roll" placeholder="Roll Number" style="height: 22px;width: 200px;"><br><br>
+                Subject:<select id="sub"   style="height: 22px;width: 200px"  onchange="populate(this);" >
+                    <option value="">--choose country--</option>
+                    <option value="sub1">subject1</option>
+                    <option value="sub2">subject2</option>
+                </select><br><br>
+                CO1     :  <input type="text" name="CO1" placeholder="CO1" style="height: 22px;width: 200px;"><br><br>
+                CO2     :  <input type="text" name="CO2" placeholder="CO2" style="height: 22px;width: 200px;"><br><br>
+                CO3 :  <input type="text" name="CO3" placeholder="CO3" style="height: 22px;width: 200px;"><br><br>
+                CO4 :  <input type="text" name="CO4" placeholder="CO4" style="height: 22px;width: 200px;"><br><br>
+                              <input type="submit" name="" class="submit" style="border-radius:20px"><br>
+                              <input type="reset" name="" class="reset" style="border-radius:20px;"><br>
+             </h2>
+            
+        </div>
+
+        </div>
+    </div>
+</form>
+<script>
+    function populate(selectObj)
+    {
+        // get the index of the selected option 
+          var idx = selectObj.selectedIndex; 
+        // get the value of the selected option 
+          var which = selectObj.options[idx].value;
+          if(which=="sub1")
+          {
+             const scriptURL = 'https://script.google.com/macros/s/AKfycbzLMrU3FuBIKW0uoCZUjigNpnektyw5V3cQpK11dYlctsd9-fSxp_kyHhTk3eMuDyLRsg/exec'
+              const form = document.forms['google-sheet']
+  
+               form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for submiting your results........."))
+              .catch(error => console.error('Error!', error.message))
+    })
+          }
+          else if(which="sub2")
+          {
+             const scriptURL = 'https://script.google.com/macros/s/AKfycbzLmhssqylyVg2HntoDZOE9EiyO9H5vdTQXfvyiDKKwumgejjj0IXv-zmYxN96L2tPs/exec'
+              const form = document.forms['google-sheet']
+  
+               form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for submiting your results........."))
+              .catch(error => console.error('Error!', error.message))
+           })
+          }
+
+    }
+</script>
+</body>
+</html>
