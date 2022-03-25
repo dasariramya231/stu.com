@@ -31,25 +31,31 @@
                                 <option value="sub2">subject2</option>
                           </select><br><br>
                           <p>Mid 1 Marks :</p><br>
-                          <input type="text" name="CO1" placeholder="CO1" style="height: 22px;width: 200px;"><br><br>
-                           <input type="text" name="CO2" placeholder="CO2" style="height: 22px;width: 200px;"><br><br>
-                           <input type="text" name="CO3" placeholder="CO3" style="height: 22px;width: 200px;"><br><br>
-                            <input type="text" name="CO4" placeholder="CO4" style="height: 22px;width: 200px;"><br><br>
+                          <input type="text" name="MID1_CO1" placeholder="CO1" style="height: 22px;width: 200px;"><br><br>
+                           <input type="text" name="MID1_CO2" placeholder="CO2" style="height: 22px;width: 200px;"><br><br>
+                           <input type="text" name="MID1_CO3" placeholder="CO3" style="height: 22px;width: 200px;"><br><br>
+                            <input type="text" name="MID1_CO4" placeholder="CO4" style="height: 22px;width: 200px;"><br><br>
                             <input type="text" name="quiz1" placeholder="quiz1" style="height: 22px;width: 200px;"><br><br>
-                             <input type="submit" name="" class="submit" style="border-radius:20px"><br>
+                            <button type="button" name="" class="submit" style="border-radius:20px" onclick="openPopup()">submit</button><br>
+                            <div class="popup" id="popup">
+                                <img src="tickmark.jpg">
+                                <h2>Thank you</h2>
+                                <p>Your details has been sucessfully submitted.</p>
+                                <button type="botton" onclick="closePopup()">ok</button>
+                               </div>
                              
                    </h2>
             </div>
             <div class="right">
                 <h2>
                            <p>Mid 2 Marks :</p><br>
-                           <input type="text" name="CO1" placeholder="CO1" style="height: 22px;width: 200px;"><br><br>
-                           <input type="text" name="CO2" placeholder="CO2" style="height: 22px;width: 200px;"><br><br>
-                           <input type="text" name="CO3" placeholder="CO3" style="height: 22px;width: 200px;"><br><br>
-                            <input type="text" name="CO4" placeholder="CO4" style="height: 22px;width: 200px;"><br><br>
+                           <input type="text" name="MID2_CO1" placeholder="CO1" style="height: 22px;width: 200px;"><br><br>
+                           <input type="text" name="MID2_CO2" placeholder="CO2" style="height: 22px;width: 200px;"><br><br>
+                           <input type="text" name="MID2_CO3" placeholder="CO3" style="height: 22px;width: 200px;"><br><br>
+                            <input type="text" name="MID2_CO4" placeholder="CO4" style="height: 22px;width: 200px;"><br><br>
                             <input type="text" name="quiz2" placeholder="quiz2" style="height: 22px;width: 200px;"><br><br>
                             <input type="text" name="assignment" placeholder="assignment" style="height: 22px;width: 200px;"><br><br>
-                            <input type="reset" name="" class="reset" style="border-radius:20px;"><br>
+                            <input type="reset" name="" class="reset" style="border-radius:20px; height: 30px; width: 300px; margin-top: 100px" ><br>
                 </h2>          
             </div>
         </div>
@@ -58,6 +64,15 @@
     </div>
 </form>
 <script>
+    let popup=document.getElementById("popup");
+                                       function openPopup()
+                                    {
+                                        popup.classList.add("open-popup");
+                                     }
+                                       function closePopup()
+                                        {
+                                           popup.classList.remove("open-popup");
+                                        }
     function populate(selectObj)
     {
         // get the index of the selected option 
@@ -72,8 +87,6 @@
                form.addEventListener('submit', e => {
                 e.preventDefault()
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for submiting your results........."))
-              .catch(error => console.error('Error!', error.message))
     })
           }
           else if(which="sub2")
@@ -84,8 +97,6 @@
                form.addEventListener('submit', e => {
                 e.preventDefault()
                 fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for submiting your results........."))
-              .catch(error => console.error('Error!', error.message))
            })
           }
 
