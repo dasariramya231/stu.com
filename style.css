@@ -53,16 +53,16 @@ font-size:50px;
 {
     
     height:650px;
-    width:800px;
+    width:900px;
     display:flex;
     justify-content: center;
     align-items: center;
 }
-.fouterbox .main .left, .right
+.fouterbox .main .left, .right, .center
 {
     
     height:550px;
-    width:400px;
+    width:300px;
    
 }
 .fouterbox .main .left input[type='submit'], .right input[type='reset']
