@@ -1,3 +1,6 @@
+
+
+
 *
 {
     margin : 0;
@@ -21,7 +24,7 @@ font-size:50px;
 .outerbox
 {
     border: 2px solid white;
-    height: 650px;
+    height: 690px;
     width:1200px;
     display :flex;
     justify-content:center;
@@ -31,7 +34,7 @@ font-size:50px;
 .ficon
 {
     
-    height: 650px;
+    height: 690px;
     width:200px;
     color:white;
     display:flex;
@@ -41,7 +44,7 @@ font-size:50px;
 }
 .fouterbox
 {
-    height:650px;
+    height:690px;
     width:1000px;
     background-color:#f1f1f1;
     border-radius:250px 0 0 250px;
@@ -52,7 +55,7 @@ font-size:50px;
 .fouterbox .main
 {
     
-    height:650px;
+    height:690px;
     width:900px;
     display:flex;
     justify-content: center;
@@ -61,7 +64,7 @@ font-size:50px;
 .fouterbox .main .left, .right, .center
 {
     
-    height:550px;
+    height:650px;
     width:300px;
    
 }
